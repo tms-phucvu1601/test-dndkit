@@ -12,13 +12,13 @@ export default function Draggable(props: DraggableProp) {
     id: props.id,
   });
   const style = {
-    // Outputs `translate3d(x, y, 0)`
+    // Outputs `translate3d(x, y, scaleX, scaleY)`
     transform: CSS.Translate.toString(transform),
   };
 
   return (
     <button
-      className=""
+      className="relative bg-amber-400 rounded-md px-4 py-2 border-2 border-amber-600 z-50 cursor-grab"
       ref={setNodeRef}
       style={style}
       {...listeners}
