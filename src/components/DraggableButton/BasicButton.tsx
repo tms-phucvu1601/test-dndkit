@@ -11,18 +11,17 @@ export type BasicButtonProps = {
 
 export default function BasicButton({ id, x, y, children }: BasicButtonProps) {
   const { attributes, listeners, setNodeRef, transform, isDragging } =
-    useDraggable({
-      id,
-    });
+    useDraggable({ id });
+
   const style = {
     transform: transform
       ? CSS.Translate.toString({
+          ...transform,
           x: x + transform.x,
           y: y + transform.y,
-          scaleX: 1,
-          scaleY: 1,
-        })
-      : CSS.Translate.toString({ x, y, scaleX: 1, scaleY: 1 }),
+        }) + ` scale(${isDragging ? 1.1 : 1})`
+      : `translate(${x}px, ${y}px) scale(${isDragging ? 1.1 : 1})`,
+    transformOrigin: "center",
     transition: isDragging ? "none" : "transform 0.2s ease",
   };
 
