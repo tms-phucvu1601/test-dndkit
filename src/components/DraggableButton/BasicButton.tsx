@@ -28,7 +28,7 @@ export default function BasicButton({ id, x, y, children }: BasicButtonProps) {
 
   return (
     <button
-      className={`px-3 py-2 bg-black text-white text-xl font-bold rounded-md ${
+      className={`px-3 py-2 bg-black text-white text-xl font-bold rounded-md cursor-grab ${
         isDragging ? "shadow-2xl" : ""
       }`}
       ref={setNodeRef}
